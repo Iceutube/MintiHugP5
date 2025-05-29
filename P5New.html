@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MintiHUG</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fffefc;
+  color: #333;
+  line-height: 1.6;
+}
+
+header.hero {
+  background: linear-gradient(to right, #a8e6cf, #dcedc1);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #2e5e4e;
+}
+
+header.hero h1 {
+  font-size: 2.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+header.hero p {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.container-mint,
+.container-sirih,
+.container,
+.container.column {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.container.column {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.text, .image, .image-mint, .image-sirih {
+  flex: 1 1 45%;
+}
+
+.image img, .image-mint img, .image-sirih img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #2e5e4e;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+footer {
+  background-color: #2e5e4e;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-weight: 500;
+}
+
+
+.section.ratios {
+  background-color: #fffefc;
+}
+
+.ratio-table {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.ratio-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ratio-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.ratio-row.header {
+  background-color: #2e5e4e;
+  color: white;
+  font-weight: bold;
+}
+
+.ratio-row span {
+  flex: 1;
+  text-align: left;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #2e5e4e;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  color: #444;
+}
+
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .container-mint, .container-sirih {
+    flex-direction: column;
+  }
+
+  .text, .image, .image-mint, .image-sirih {
+    flex: 1 1 100%;
+  }
+
+  .card img {
+    height: auto;
+  }
+}
+
+.stevia-card {
+  grid-column: 1 / -1; /* agar pakai satu baris penuh */
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  max-width: 900px;
+  margin: 3rem auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  background-color: #000;
+}
+.section.contact {
+  background-color: #f1f8f5;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  color: #2e5e4e;
+  font-weight: 500;
+}
+
+.contact-item img {
+  width: 28px;
+  height: 28px;
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Pasta Gigi Dari Mint dan Sirih</h1>
+    <p>Perpaduan alami untuk gigi sehat</p>
+  </header>
+
+
+  <section class="section reason">
+    <div class="container-mint">
+      <div class="text">
+        <h2>Kenapa Mint</h2>
+        <p>Mint mengandung menthol, senyawa yang memberikan sensasi dingin dan aroma segar yang tahan lama di mulut. Mint memiliki sifat antimikroba yang dapat membantu membunuh bakteri penyebab bau mulut dan plak. Menthol juga membantu mengurangi rasa tidak nyaman pada gusi yang sensitif atau teriritasi.</p>
+      </div>
+      <div class="image-mint">
+        <img src="https://img-highend.okezone.com/okz/900/pictureArticle/images_J2f9J90A_1i47Vw.jpeg" alt="Mint">
+      </div>
+    </div>
+  </section>
+  <section class="section reason">
+    <div class="container-sirih">
+      <div class="text">
+      <h3>Kenapa Sirih</h3>
+        <p>Daun sirih mengandung senyawa seperti chavicol dan eugenol yang kuat sebagai antibakteri, antijamur, dan antiinflamasi. Sering digunakan dalam tradisi Indonesia untuk berkumur karena efektivitasnya dalam menghilangkan bau tidak sedap. Ekstrak daun sirih terbukti membantu menjaga jaringan gusi tetap sehat dan kuat.</p>
+        </div>
+        <div class="image-sirih">
+          <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1684113193/attached_image/7-manfaat-daun-sirih-bagi-wanita.jpg"alt="alt=" Daun Sirih style="width: 100%; border-radius: 7px;">
+        </div>
+    </div>
+  </section>
+
+  <section class="section composition">
+  <div class="container column">
+    <h2>Bahan Pasta Gigi</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://cms-dashboard.realfood.co.id/app/uploads/2022/03/baking-soda-819x1024.jpg" alt="Baking Soda">
+        <h3>1. Baking Soda</h3>
+        <p>Berfungsi untuk membersihkan plak dan memutihkan gigi secara alami.</p>
+      </div>
+      <div class="card">
+        <img src="https://content-health-harvard-edu.translate.goog/wp-content/uploads/2021/10/13091638-f3fe-4c5a-b5fe-f91b5806ac57.jpg" alt="Coconut Oil">
+        <h3>2. Coconut Oil</h3>
+        <p>Melindungi gusi dan mencegah iritasi akibat gesekan saat menyikat gigi.</p>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIH-rl1I1vXZRyBMFXPFjKuYwBL7mUoaOVKQ&s" alt="Essential Oil Daun Mint">
+        <h3>3. Essential Oil Daun Mint</h3>
+        <p>Memberikan sensasi dingin dan menyegarkan nafas.</p>
+      </div>
+      <div class="card">
+        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1684113193/attached_image/7-manfaat-daun-sirih-bagi-wanita.jpg" alt="Essential Oil Daun Sirih">
+        <h3>4. Essential Oil Daun Sirih</h3>
+        <p>Membunuh bakteri penyebab infeksi pada mulut dan menjaga kesehatan gusi.</p>
+      </div>
+      <div class="card stevia-card">
+        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1735548219/attached_image/stevia-untuk-minuman-cara-mudah-kurangi-asupan-gula.jpg" alt="Stevia">
+         <h3>5. Stevia</h3>
+        <p>Berfungsi sebagai menyamarkan rasa pahit dari bahan antibakteri dan memberikan rasa manis</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="section ratios">
+    <div class="container column">
+      <h2>Komposisi Pasta Gigi</h2>
+      <div class="ratio-table">
+        <div class="ratio-row header">
+          <span>Bahan</span>
+          <span>Rasio</span>
+        </div>
+        <div class="ratio-row">
+          <span>Baking Soda</span>
+          <span>6-7 sdm</span>
+        </div>
+        <div class="ratio-row">
+          <span>Coconut Oil</span>
+          <span>3 1/2 sdm</span>
+        </div>
+        <div class="ratio-row">
+          <span>Essential Oil Daun Mint</span>
+          <span>1/2 sdm</span>
+        </div>
+        <div class="ratio-row">
+          <span>Essential Oil Daun Sirih</span>
+          <span>1/2 sdm</span>
+        </div>
+        <div class="ratio-row">
+          <span>Stevia</span>
+          <span>5 tetes</span>
+        </div>
+          <section class="section">
+            <div class="container column">
+              <h2>Video Pembuatan</h2>
+            </div>
+        <div class="video-wrapper">
+       <video controls>
+          <source src="Pembuatan.mp4" type="video/mp4">
+          Maaf, browser Anda tidak mendukung pemutar video.
+        </video>
+        </div>
+        </section>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section contact">
+  <div class="container column">
+    <h2>Kontak Kami</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        <span>@scitechvo</span>
+      </div>
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone" />
+        <span>+62 821-2270-9971</span>
+      </div>
+      <div class="container column">
+        <h1>Kelompok 1</h1>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
